@@ -1,4 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { siteMeta, type AppRoute } from './data/site';
 import { useI18n } from './i18n';
 
@@ -124,6 +125,7 @@ export default function App() {
       </main>
       {installMessage && <div className="toast" role="status"><span>{installMessage}</span><button onClick={() => setInstallMessage('')} aria-label="Close">×</button></div>}
       <footer className="app-footer"><span>© {new Date().getFullYear()} {siteMeta.name}</span><span>{t('footer')}</span></footer>
+      <Analytics />
     </div>
   );
 }
